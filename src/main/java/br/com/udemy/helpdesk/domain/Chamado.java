@@ -2,20 +2,42 @@ package br.com.udemy.helpdesk.domain;
 
 import br.com.udemy.helpdesk.domain.enums.Prioridade;
 import br.com.udemy.helpdesk.domain.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
+import java.security.Identity;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity(name = "TB_CHAMADO")
 public class Chamado {
+    private static final long serialVersionUID = 1l;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAbertura = LocalDate.now();
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento;
+
     private Prioridade prioridade;
+
     private Status status;
+
     private String titulo;
+
     private String observacoes;
+
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     public Chamado() {
