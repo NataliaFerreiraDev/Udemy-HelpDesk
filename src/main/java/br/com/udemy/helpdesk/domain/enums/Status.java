@@ -3,8 +3,8 @@ package br.com.udemy.helpdesk.domain.enums;
 public enum Status {
 
     ABERTO(0, "ABERTO"),
-    ANDAMENTO(0, "ANDAMENTO"),
-    ENCERRADO(0, "ENCERRADO");
+    ANDAMENTO(1, "ANDAMENTO"),
+    ENCERRADO(2, "ENCERRADO");
 
     private Integer codigo;
     private String descricao;
