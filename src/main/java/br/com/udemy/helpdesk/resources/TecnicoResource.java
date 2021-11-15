@@ -1,6 +1,7 @@
 package br.com.udemy.helpdesk.resources;
 
 import br.com.udemy.helpdesk.domain.Tecnico;
+import br.com.udemy.helpdesk.domain.dtos.TecnicoDTO;
 import br.com.udemy.helpdesk.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,9 @@ public class TecnicoResource {
     private TecnicoService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id){
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id){
         Tecnico obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(new TecnicoDTO(obj));
     }
 
 }

@@ -4,9 +4,7 @@ import br.com.udemy.helpdesk.domain.enums.Prioridade;
 import br.com.udemy.helpdesk.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
-import java.security.Identity;
 import java.time.LocalDate;
 import java.util.Objects;
 
